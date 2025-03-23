@@ -1,0 +1,31 @@
+# מערכת הפעלה
+.DS_Store
+Thumbs.db
+
+# תיקיות node
+node_modules/
+
+# קבצים שנוצרים על ידי React
+build/
+dist/
+
+# קבצי סביבה
+.env
+.env.*.local
+
+# קבצי VSCode
+.vscode/
+
+# קבצים שנוצרים בזמן פיתוח
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# קבצים מותאמים אישית או נתונים שלא צריכים להיכנס לגרסאות
+*.log
+*.sqlite
+*.sqlite3
+
+# קבצים ותיקיות מ- IDEs נוספים
+.idea/
+*.iml
