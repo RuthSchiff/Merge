@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import { PDFDocument } from "pdf-lib";
-import './MergePDF.css';
 import Swal from "sweetalert2";
+import "./MergePDF.css";
 
 const MergePDF = () => {
   const [mergedPdfUrl, setMergedPdfUrl] = useState(null);
+  const [pdfFiles, setPdfFiles] = useState([]);
 
-  const handleMerge = async (event) => {
-    const files = event.target.files;
-    if (files.length < 2) {
+  const handleMergePDF = async () => {
+    if (pdfFiles.length < 2) {
       Swal.fire({
-        icon: 'error',
-        title: 'שגיאה',
-        text: 'נא לבחור לפחות שני קבצים PDF למיזוג',
+        icon: "error",
+        title: "שגיאה",
+        text: "נא לבחור לפחות שני קבצים PDF למיזוג",
       });
       return;
     }
 
     const pdfDoc = await PDFDocument.create();
-
-    for (let file of files) {
+    for (let file of pdfFiles) {
       const arrayBuffer = await file.arrayBuffer();
       const existingPdf = await PDFDocument.load(arrayBuffer);
       const copiedPages = await pdfDoc.copyPages(existingPdf, existingPdf.getPageIndices());
@@ -34,23 +33,28 @@ const MergePDF = () => {
 
   return (
     <div className="container">
-         {/* <h1 className="app-title">🚀 כלי למיזוג PDF</h1> */}
       <h1 className="title">📝 מיזוג קבצי PDF</h1>
-      <input 
-        type="file" 
-        accept="application/pdf" 
-        multiple 
-        onChange={handleMerge} 
-        className="file-input"
-      />
+      <input type="file" accept=".pdf" multiple onChange={(e) => setPdfFiles(e.target.files)} className="file-input" />
+      <button onClick={handleMergePDF} className="merge-btn">מזג קבצי PDF</button>
       {mergedPdfUrl && (
         <div className="download-section">
           <h3 className="download-title">הורד את ה-PDF המשולב:</h3>
-          <a href={mergedPdfUrl} download="merged.pdf" className="download-btn">📄 הורד PDF</a>
+          
         </div>
       )}
+      
+      <button 
+  onClick={() => {
+    const link = document.createElement("a");
+    link.href = mergedPdfUrl;
+    link.download = "merged.pdf";
+    link.click();
+  }} 
+  className="download-btn">
+  📄 הורד PDF
+</button>
+
     </div>
   );
 };
-
 export default MergePDF;
