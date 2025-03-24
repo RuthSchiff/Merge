@@ -33,7 +33,7 @@ const MergePDF = () => {
 
   return (
     <div className="container">
-      <h1 className="title">📝 מיזוג קבצי PDF</h1>
+      <h1 className="title">📝 PDF מיזוג קבצי </h1>
       <input type="file" accept=".pdf" multiple onChange={(e) => setPdfFiles(e.target.files)} className="file-input" />
       <button onClick={handleMergePDF} className="merge-btn">מזג קבצי PDF</button>
       {mergedPdfUrl && (
