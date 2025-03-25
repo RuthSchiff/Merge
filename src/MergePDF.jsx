@@ -38,7 +38,7 @@ const MergePDF = () => {
       <button onClick={handleMergePDF} className="merge-btn">PDF מזג קבצי</button>
       {mergedPdfUrl && (
         <div className="download-section">
-          <h3 className="download-title">המשולב PDF - הורד את ה</h3>
+          <h3 className="download-title">:המשולב PDF - הורד את ה</h3>
           
         </div>
       )}
