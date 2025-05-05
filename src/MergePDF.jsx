@@ -36,10 +36,10 @@ const MergePDF = () => {
     <div className="container">
       <h1 className="title">📝 PDF מיזוג קבצי </h1>
       <input type="file" accept=".pdf" multiple onChange={(e) => setPdfFiles(e.target.files)} className="file-input" />
-      <button onClick={handleMergePDF} className="merge-btn">מזג קבצי PDF</button>
+      <button onClick={handleMergePDF} className="merge-btn">PDF מזג קבצי</button>
       {mergedPdfUrl && (
         <div className="download-section">
-          <h3 className="download-title">הורד את ה-PDF המשולב:</h3>
+          <h3 className="download-title">:המשולב PDF - הורד את ה</h3>
           
         </div>
       )}
@@ -52,7 +52,7 @@ const MergePDF = () => {
     link.click();
   }} 
   className="download-btn">
-  📄 הורד PDF
+  📄 PDF הורד 
 </button>
 
     </div>
