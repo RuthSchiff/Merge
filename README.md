@@ -24,9 +24,9 @@
 בנייה
 להפקת גרסה מוכנה לפרודקשן:
 
-npm install
-npm start
-npm run build
+##### npm install
+##### npm start
+##### npm run build
 
 
 # React PDF & Audio Merger
@@ -76,6 +76,6 @@ wav-encoder: For merging audio files.
 
 sweetalert2: For displaying messages to the user.
 ספריות צד שלישי
-pdf-lib: למיזוג קבצי PDF.
-wav-encoder: למיזוג קבצי שמע.
-sweetalert2: להצגת הודעות למשתמש.
+##### pdf-lib: למיזוג קבצי PDF.
+##### wav-encoder: למיזוג קבצי שמע.
+##### sweetalert2: להצגת הודעות למשתמש.
