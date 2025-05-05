@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import wavEncoder from "wav-encoder";
 
+//רכיב react לחיבור קבצי שמע
 const AudioMerger = () => {
   const [files, setFiles] = useState([]);
   const [mergedBuffer, setMergedBuffer] = useState(null);
-
+//פונקציה להוספת קבצים לרשימה
   const handleFileChange = (event) => {
     const newFiles = Array.from(event.target.files);
     setFiles((prevFiles) => [...prevFiles, ...newFiles]); // הוספת קבצים לרשימה הקיימת
@@ -13,7 +14,7 @@ const AudioMerger = () => {
   const removeFile = (index) => {
     setFiles(files.filter((_, i) => i !== index)); // מחיקת קובץ מהרשימה
   };
-
+// פונקציה לחיבור קבצי שמע
   const mergeAudioFiles = async () => {
     if (files.length < 2) {
       alert("בחר לפחות שני קבצי שמע לחיבור.");
@@ -43,7 +44,7 @@ const AudioMerger = () => {
 
     setMergedBuffer(mergedBuffer);
   };
-
+// פונקציה להורדת קובץ השמע המחובר
   const downloadMergedAudio = async () => {
     if (!mergedBuffer) return;
 

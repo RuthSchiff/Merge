@@ -6,7 +6,7 @@ import "./MergePDF.css";
 const MergePDF = () => {
   const [mergedPdfUrl, setMergedPdfUrl] = useState(null);
   const [pdfFiles, setPdfFiles] = useState([]);
-
+// פונקציה להוספת קבצים לרשימה
   const handleMergePDF = async () => {
     if (pdfFiles.length < 2) {
       Swal.fire({
@@ -16,7 +16,7 @@ const MergePDF = () => {
       });
       return;
     }
-
+    // פונקציה לחיבור קבצי PDF
     const pdfDoc = await PDFDocument.create();
     for (let file of pdfFiles) {
       const arrayBuffer = await file.arrayBuffer();
@@ -28,6 +28,7 @@ const MergePDF = () => {
     const mergedPdfBytes = await pdfDoc.save();
     const blob = new Blob([mergedPdfBytes], { type: "application/pdf" });
     const url = URL.createObjectURL(blob);
+    // יצירת קישור להורדת הקובץ הממוזג
     setMergedPdfUrl(url);
   };
 
@@ -42,7 +43,7 @@ const MergePDF = () => {
           
         </div>
       )}
-      
+         
       <button 
   onClick={() => {
     const link = document.createElement("a");
