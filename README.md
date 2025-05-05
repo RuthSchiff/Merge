@@ -76,6 +76,6 @@ wav-encoder: For merging audio files.
 
 sweetalert2: For displaying messages to the user.
 ספריות צד שלישי
-##### pdf-lib: למיזוג קבצי PDF.
+##### pdf-lib: PDF למיזוג קבצי .
 ##### wav-encoder: למיזוג קבצי שמע.
 ##### sweetalert2: להצגת הודעות למשתמש.
